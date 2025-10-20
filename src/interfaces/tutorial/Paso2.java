@@ -329,6 +329,15 @@ public class Paso2 extends javax.swing.JFrame {
 
     private void siguienteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_siguienteBtnActionPerformed
         // TODO add your handling code here:
+        // 1. Crear una instancia de la nueva ventana (Paso3)
+        Paso3 nextFrame = new Paso3();
+
+        // 2. Hacer visible la nueva ventana
+        nextFrame.setVisible(true);
+
+        // 3. Ocultar la ventana actual (la clase Paso1)
+        // 'this' se refiere a la instancia actual de Paso1
+        this.dispose();
     }//GEN-LAST:event_siguienteBtnActionPerformed
 
     private void anteriorBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anteriorBtnActionPerformed

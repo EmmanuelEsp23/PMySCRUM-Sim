@@ -181,8 +181,8 @@ public class Inicio extends javax.swing.JFrame {
 
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
         // TODO add your handling code here:
-        // 1. Crear una instancia de la nueva ventana (Paso1)
-        Paso1 nextFrame = new Paso1();
+        // 1. Crear una instancia de la nueva ventana (Introduccion)
+        Introduccion nextFrame = new Introduccion();
 
         // 2. Hacer visible la nueva ventana
         nextFrame.setVisible(true);
