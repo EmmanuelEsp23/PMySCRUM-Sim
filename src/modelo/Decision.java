@@ -8,7 +8,6 @@ package modelo;
  *
  * @author emman
  */
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +16,7 @@ import java.util.List;
   tomar una decisión. Contiene el escenario y una lista de opciones disponibles.
  */
 public class Decision {
+
     private final String title;
     private final String scenarioDescription;
     private final List<Option> options;
@@ -29,13 +29,21 @@ public class Decision {
 
     /*
      Añade una opción posible a esta decisión.
-    */
+     */
     public void addOption(Option option) {
         this.options.add(option);
     }
 
     // --- Getters para que la Vista muestre la decisión ---
-    public String getTitle() { return title; }
-    public String getScenarioDescription() { return scenarioDescription; }
-    public List<Option> getOptions() { return options; }
+    public String getTitle() {
+        return title;
+    }
+
+    public String getScenarioDescription() {
+        return scenarioDescription;
+    }
+
+    public List<Option> getOptions() {
+        return options;
+    }
 }

@@ -120,7 +120,6 @@ public class Paso2 extends javax.swing.JFrame {
         header.setBackground(new java.awt.Color(185, 188, 240));
 
         titulo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        titulo.setForeground(new java.awt.Color(0, 0, 0));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titulo.setText("Tutorial del Juego");
 
@@ -145,9 +144,7 @@ public class Paso2 extends javax.swing.JFrame {
 
         siguienteBtn.setBackground(new java.awt.Color(94, 195, 246));
         siguienteBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        siguienteBtn.setForeground(new java.awt.Color(0, 0, 0));
         siguienteBtn.setText("Siguiente");
-        siguienteBtn.setActionCommand("Siguiente");
         siguienteBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 siguienteBtnActionPerformed(evt);
@@ -155,7 +152,6 @@ public class Paso2 extends javax.swing.JFrame {
         });
 
         paso2.setBackground(new java.awt.Color(51, 51, 255));
-        paso2.setForeground(new java.awt.Color(0, 0, 0));
         paso2.setToolTipText("");
 
         textoPaso2.setText("Paso 2: ");
@@ -186,17 +182,13 @@ public class Paso2 extends javax.swing.JFrame {
         );
 
         paso2Der.setBackground(new java.awt.Color(255, 255, 255));
-        paso2Der.setForeground(new java.awt.Color(0, 0, 0));
 
-        paso2DerTexto1.setForeground(new java.awt.Color(0, 0, 0));
         paso2DerTexto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso2DerTexto1.setText("En base a las deciciones del ");
 
-        paso2DerTexto2.setForeground(new java.awt.Color(0, 0, 0));
         paso2DerTexto2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso2DerTexto2.setText("jugador se administrará el");
 
-        paso2DerTexto3.setForeground(new java.awt.Color(0, 0, 0));
         paso2DerTexto3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         paso2DerTexto3.setText("proyecto propuesto");
 
@@ -229,30 +221,23 @@ public class Paso2 extends javax.swing.JFrame {
         );
 
         paso2TextoCentral1.setBackground(new java.awt.Color(255, 255, 255));
-        paso2TextoCentral1.setForeground(new java.awt.Color(0, 0, 0));
         paso2TextoCentral1.setText("Existen escenarios de las etapas respectivas de las ");
 
-        paso2TextoCentral2.setForeground(new java.awt.Color(0, 0, 0));
         paso2TextoCentral2.setText("metodologías");
 
-        paso2TextoCentral3.setForeground(new java.awt.Color(0, 0, 0));
         paso2TextoCentral3.setText("1. Planificación");
 
         paso2TextoCentral4.setBackground(new java.awt.Color(255, 255, 255));
-        paso2TextoCentral4.setForeground(new java.awt.Color(0, 0, 0));
         paso2TextoCentral4.setText("2. Ejecución");
 
         paso2TextoCentral5.setBackground(new java.awt.Color(255, 255, 255));
-        paso2TextoCentral5.setForeground(new java.awt.Color(0, 0, 0));
         paso2TextoCentral5.setText("3. Monitoreo y Control");
 
         paso2TextoCentral6.setBackground(new java.awt.Color(255, 255, 255));
-        paso2TextoCentral6.setForeground(new java.awt.Color(0, 0, 0));
         paso2TextoCentral6.setText("4. Cierre del Proyecto");
 
         anteriorBtn.setBackground(new java.awt.Color(94, 195, 246));
         anteriorBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        anteriorBtn.setForeground(new java.awt.Color(0, 0, 0));
         anteriorBtn.setText("Anterior");
         anteriorBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
