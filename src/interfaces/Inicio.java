@@ -7,6 +7,12 @@ import interfaces.tutorial.Paso2;
 import java.awt.Font;
 import java.io.InputStream;
 import interfaces.tutorial.Paso1;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Shape;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.JButton;
 /**
  *
  * @author frann
@@ -178,6 +184,7 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
     private void enterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterBtnActionPerformed
         // TODO add your handling code here:

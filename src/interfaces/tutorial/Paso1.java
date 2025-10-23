@@ -11,6 +11,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Color;
+import java.awt.GraphicsEnvironment;
 /**
  *
  * @author frann
@@ -50,15 +51,22 @@ public class Paso1 extends javax.swing.JFrame {
                     titulo.setFont(sizedFontTitulo); 
                     
                     // texto del paso 1
-                    textoPaso1.setFont(sizedFontTexto);
-                    textoPaso1.setForeground(java.awt.Color.WHITE);
-                    texto2Paso1.setFont(sizedFontTexto);
-                    texto2Paso1.setForeground(java.awt.Color.WHITE);
+                    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                    ge.registerFont(customFont);
+                    textoPaso1.setFont(sizedFontTexto);  
+                    textoPaso1.setText("<html>" +
+                        "<div style='text-align:left; font-family:\"" + customFont.getName() + "\"; font-size:12pt;'>" +
+                        "<p style='margin:0 0 10px 0;'>Paso 1: </p>" +
+                        "<p style='margin:0;'>Escoger Metodología</p>" + 
+                        "</div></html>");
                     
                     // texto de instrucciones (debajo de paso 1)
                     texto.setFont(sizedFontTexto);
-                    texto1.setFont(sizedFontTexto);
-                    
+                    texto.setText("<html>" +
+                        "<div style='text-align:center; font-family:\"" + customFont.getName() + "\";'>" +
+                        "<p style='margin:0 0 10px 0;'>Elegir la metodología SCRUM o PMBOK </p>" +
+                        "<p style='margin:0;'>Del caso propuesto</p>" + 
+                        "</div></html>");                   
                     // botones
                     anteriorBtn.setFont(sizedFontTexto);
                     siguienteBtn.setFont(sizedFontTexto);
@@ -89,13 +97,11 @@ public class Paso1 extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         contenido = new javax.swing.JPanel();
         siguienteBtn = new javax.swing.JButton();
-        paso1 = new javax.swing.JPanel();
-        textoPaso1 = new javax.swing.JLabel();
-        texto2Paso1 = new javax.swing.JLabel();
         texto = new javax.swing.JLabel();
-        texto1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         anteriorBtn = new javax.swing.JButton();
+        Paso1 = new classes.PanelRound();
+        textoPaso1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +119,7 @@ public class Paso1 extends javax.swing.JFrame {
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
                 .addContainerGap())
         );
         headerLayout.setVerticalGroup(
@@ -135,42 +141,9 @@ public class Paso1 extends javax.swing.JFrame {
             }
         });
 
-        paso1.setBackground(new java.awt.Color(51, 51, 255));
-        paso1.setToolTipText("");
-
-        textoPaso1.setText("Paso 1: ");
-
-        texto2Paso1.setText("Escoger Metodología");
-
-        javax.swing.GroupLayout paso1Layout = new javax.swing.GroupLayout(paso1);
-        paso1.setLayout(paso1Layout);
-        paso1Layout.setHorizontalGroup(
-            paso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paso1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(paso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paso1Layout.createSequentialGroup()
-                        .addComponent(texto2Paso1)
-                        .addGap(0, 21, Short.MAX_VALUE))
-                    .addComponent(textoPaso1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        paso1Layout.setVerticalGroup(
-            paso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paso1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(textoPaso1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(texto2Paso1)
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-
         texto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        texto.setText("del caso propuesto");
 
-        texto1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        texto1.setText("Elegir la metodología SCRUM o PMBOK ");
-
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/paso1.png"))); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(300, 200));
 
@@ -183,45 +156,59 @@ public class Paso1 extends javax.swing.JFrame {
             }
         });
 
+        Paso1.setBackground(new java.awt.Color(51, 51, 255));
+        Paso1.setForeground(new java.awt.Color(255, 255, 255));
+        Paso1.setRoundBottomLeft(50);
+        Paso1.setRoundBottomRight(50);
+        Paso1.setRoundTopLeft(50);
+        Paso1.setRoundTopRight(50);
+
+        textoPaso1.setForeground(new java.awt.Color(255, 255, 255));
+        textoPaso1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        javax.swing.GroupLayout Paso1Layout = new javax.swing.GroupLayout(Paso1);
+        Paso1.setLayout(Paso1Layout);
+        Paso1Layout.setHorizontalGroup(
+            Paso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Paso1Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(textoPaso1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
+        );
+        Paso1Layout.setVerticalGroup(
+            Paso1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Paso1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(textoPaso1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(texto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(texto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addComponent(texto1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(135, 135, 135)
+                        .addComponent(anteriorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(siguienteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contenidoLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(paso1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(contenidoLayout.createSequentialGroup()
-                                .addGap(177, 177, 177)
-                                .addComponent(anteriorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)
-                                .addComponent(siguienteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 166, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(203, 203, 203))
+                        .addGap(15, 15, 15)
+                        .addComponent(Paso1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(paso1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Paso1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(texto1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(texto, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -235,7 +222,7 @@ public class Paso1 extends javax.swing.JFrame {
         fondoLayout.setHorizontalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(contenido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,16 +301,14 @@ public class Paso1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private classes.PanelRound Paso1;
     private javax.swing.JButton anteriorBtn;
     private javax.swing.JPanel contenido;
     private javax.swing.JPanel fondo;
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel paso1;
     private javax.swing.JButton siguienteBtn;
     private javax.swing.JLabel texto;
-    private javax.swing.JLabel texto1;
-    private javax.swing.JLabel texto2Paso1;
     private javax.swing.JLabel textoPaso1;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables

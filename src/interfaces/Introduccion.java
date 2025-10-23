@@ -7,6 +7,7 @@ import interfaces.tutorial.Paso2;
 import java.awt.Font;
 import java.io.InputStream;
 import interfaces.tutorial.Paso1;
+import java.awt.GraphicsEnvironment;
 /**
  *
  * @author frann
@@ -22,6 +23,7 @@ public class Introduccion extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null); // abrir ventana en el centro 
         this.setTitle("PMySCRUM - Introducción");
+
         
             // ===============================================
             // CÓDIGO PARA CARGAR Y APLICAR LA FUENTE EXTERNA
@@ -38,6 +40,7 @@ public class Introduccion extends javax.swing.JFrame {
                     // 3. Establecer el tamaño y estilo (ej. tamaño 24)
                     Font sizedFontTitulo = customFont.deriveFont(Font.BOLD, 20f); 
                     Font sizedFontTexto = customFont.deriveFont(Font.BOLD, 10f); 
+                    Font sizedFontBoton = customFont.deriveFont(Font.BOLD, 15f); 
 
                     // 4. Aplicar la fuente al JLabel creado en el diseñador
                     
@@ -45,13 +48,21 @@ public class Introduccion extends javax.swing.JFrame {
                     titulo.setFont(sizedFontTitulo);
                     
                     // texto arriba
-                    textoArriba1.setFont(sizedFontTexto);
-                    textoArriba2.setFont(sizedFontTexto);
-                    
+                    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                    ge.registerFont(customFont);
+                    textoArriba.setFont(sizedFontTexto);    
+                    textoArriba.setText("<html>" +
+                        "<div style='text-align:center; font-family:\"" + customFont.getName() + "\"; font-size:12pt;'>" +
+                        "<p style='margin:0 0 10px 0;'>Aprende las bases de las metodologías PMBOK y SCRUM</p>" +
+                        "<p style='margin:0 0 10px 0;'>por medio de nuestro contenido didáctico y</p>"
+                                + "<p style='margin:0;'>simulación de proyectos</p>" +
+                        "</div></html>");
                     
                     // bloques
                     textoBloqueIzq.setFont(sizedFontTexto);
-                    textoBloqueDer.setFont(sizedFontTexto);
+                    
+                    // boton tutorial
+                    tutorialBtn.setFont(sizedFontBoton);
                     
                 } else {
                     System.err.println("Error: Archivo de fuente no encontrado en la ruta /fonts/PressStart2P.ttf");
@@ -77,15 +88,13 @@ public class Introduccion extends javax.swing.JFrame {
         header = new javax.swing.JPanel();
         titulo = new javax.swing.JLabel();
         contenido = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        textoArriba = new javax.swing.JLabel();
+        tutorialBtn = new classes.ButtonRound();
+        panelRound3 = new classes.PanelRound();
+        panelRound1 = new classes.PanelRound();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         textoBloqueIzq = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        textoBloqueDer = new javax.swing.JLabel();
-        textoArriba1 = new javax.swing.JLabel();
-        tutorialBtn = new javax.swing.JButton();
-        textoArriba2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,7 +126,44 @@ public class Introduccion extends javax.swing.JFrame {
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+        textoArriba.setForeground(new java.awt.Color(0, 0, 0));
+        textoArriba.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        tutorialBtn.setBackground(new java.awt.Color(51, 255, 51));
+        tutorialBtn.setForeground(new java.awt.Color(255, 255, 255));
+        tutorialBtn.setText("Ver Tutorial");
+        tutorialBtn.setRoundBottomLeft(50);
+        tutorialBtn.setRoundBottomRight(50);
+        tutorialBtn.setRoundTopLeft(50);
+        tutorialBtn.setRoundTopRight(50);
+        tutorialBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tutorialBtnActionPerformed(evt);
+            }
+        });
+
+        panelRound3.setBackground(new java.awt.Color(102, 153, 255));
+        panelRound3.setRoundBottomLeft(50);
+        panelRound3.setRoundBottomRight(50);
+        panelRound3.setRoundTopLeft(50);
+        panelRound3.setRoundTopRight(50);
+
+        javax.swing.GroupLayout panelRound3Layout = new javax.swing.GroupLayout(panelRound3);
+        panelRound3.setLayout(panelRound3Layout);
+        panelRound3Layout.setHorizontalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 290, Short.MAX_VALUE)
+        );
+        panelRound3Layout.setVerticalGroup(
+            panelRound3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 305, Short.MAX_VALUE)
+        );
+
+        panelRound1.setBackground(new java.awt.Color(102, 153, 255));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/SCRUM Icon.png"))); // NOI18N
 
@@ -127,104 +173,62 @@ public class Introduccion extends javax.swing.JFrame {
         textoBloqueIzq.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoBloqueIzq.setText("¡Aprende la teoría!");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(204, Short.MAX_VALUE)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
+        panelRound1.setLayout(panelRound1Layout);
+        panelRound1Layout.setHorizontalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel1)
+                .addContainerGap(187, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
                 .addContainerGap())
             .addComponent(textoBloqueIzq, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+        panelRound1Layout.setVerticalGroup(
+            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRound1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addComponent(textoBloqueIzq)
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(textoBloqueIzq, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel2)
-                .addContainerGap())
+                .addGap(14, 14, 14))
         );
-
-        jPanel2.setBackground(new java.awt.Color(102, 153, 255));
-
-        textoBloqueDer.setForeground(new java.awt.Color(255, 255, 255));
-        textoBloqueDer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoBloqueDer.setText("Escenarios simulados");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(textoBloqueDer, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addComponent(textoBloqueDer)
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-
-        textoArriba1.setForeground(new java.awt.Color(0, 0, 0));
-        textoArriba1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoArriba1.setText("Aprende las bases de las metodologías PMBOK y SCRUM por medio");
-
-        tutorialBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/tutorialBtn.png"))); // NOI18N
-        tutorialBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tutorialBtnActionPerformed(evt);
-            }
-        });
-
-        textoArriba2.setForeground(new java.awt.Color(0, 0, 0));
-        textoArriba2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        textoArriba2.setText("por medio de nuestro contenido didáctico y simulación de proyectos");
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(textoArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(contenidoLayout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(contenidoLayout.createSequentialGroup()
-                                .addGap(227, 227, 227)
-                                .addComponent(tutorialBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(textoArriba1, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(textoArriba2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(62, 62, 62)
+                        .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(53, 53, 53)
+                        .addComponent(panelRound3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(contenidoLayout.createSequentialGroup()
+                .addGap(257, 257, 257)
+                .addComponent(tutorialBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(textoArriba1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textoArriba2)
                 .addGap(29, 29, 29)
-                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
+                .addComponent(textoArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelRound3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
                 .addComponent(tutorialBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout fondoLayout = new javax.swing.GroupLayout(fondo);
@@ -233,8 +237,8 @@ public class Introduccion extends javax.swing.JFrame {
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(header, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(fondoLayout.createSequentialGroup()
-                .addComponent(contenido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         fondoLayout.setVerticalGroup(
             fondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +264,7 @@ public class Introduccion extends javax.swing.JFrame {
 
     private void tutorialBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tutorialBtnActionPerformed
         // TODO add your handling code here:
-        // 1. Crear una instancia de la nueva ventana (Paso1)
+        // 1. Crear una instancia de la nueva ventana (paso1)
         Paso1 nextFrame = new Paso1();
 
         // 2. Hacer visible la nueva ventana
@@ -302,13 +306,11 @@ public class Introduccion extends javax.swing.JFrame {
     private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel textoArriba1;
-    private javax.swing.JLabel textoArriba2;
-    private javax.swing.JLabel textoBloqueDer;
+    private classes.PanelRound panelRound1;
+    private classes.PanelRound panelRound3;
+    private javax.swing.JLabel textoArriba;
     private javax.swing.JLabel textoBloqueIzq;
     private javax.swing.JLabel titulo;
-    private javax.swing.JButton tutorialBtn;
+    private classes.ButtonRound tutorialBtn;
     // End of variables declaration//GEN-END:variables
 }
