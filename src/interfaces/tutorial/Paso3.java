@@ -11,6 +11,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Color;
+import java.awt.GraphicsEnvironment;
 /**
  *
  * @author frann
@@ -49,20 +50,27 @@ public class Paso3 extends javax.swing.JFrame {
                     // titulo del header 
                     titulo.setFont(sizedFontTitulo); 
                     
-                    // texto del paso 2
+                    // texto del paso 3
+                    GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+                    ge.registerFont(customFont);
                     textoPaso3.setFont(sizedFontTexto);
-                    textoPaso3.setForeground(java.awt.Color.WHITE);
-                    texto2Paso3.setFont(sizedFontTexto);
-                    texto2Paso3.setForeground(java.awt.Color.WHITE);
-                    texto3Paso3.setFont(sizedFontTexto);
-                    texto3Paso3.setForeground(java.awt.Color.WHITE);
+                    textoPaso3.setText("<html>" +
+                        "<div style='text-align:left; font-family:\"" + customFont.getName() + "\"; font-size:12pt;'>" +
+                        "<p style='margin:0 0 10px 0;'>Paso 3: </p>" +
+                        "<p style='margin:0;'>Tomas buenas decisiones</p>" + 
+                        "</div></html>");
                     
                     
                     // texto central
-                    paso3TextoCentral1.setFont(sizedFontTexto2);
-                    paso3TextoCentral2.setFont(sizedFontTexto2);
-                    paso3TextoCentral3.setFont(sizedFontTexto2);
-                    paso3TextoCentral4.setFont(sizedFontTexto2);
+                    textoCentral.setFont(sizedFontTexto);
+                    textoCentral.setText("<html>" +
+                        "<div style='text-align:center; font-family:\"" + customFont.getName() + "\"; font-size:12pt;'>" +
+                        "<p style='margin:0 0 10px 0;'>Cada elección que hagas afectará el tiempo,</p>" +
+                        "<p style='margin:0 0 15px 0;'>costo, calidad y motivación del equipo.</p>" + 
+                        "<p style='margin:0 0 10px 0;'>¡Toma las decisiones correctas y lleva tu</p>" +
+                        "<p style='margin:0;'>proyecto al éxito!</p>" +
+                        "</div></html>");
+
                     
                     //botones
                     anteriorBtn.setFont(sizedFontTexto);
@@ -93,17 +101,12 @@ public class Paso3 extends javax.swing.JFrame {
         header = new javax.swing.JPanel();
         titulo = new javax.swing.JLabel();
         contenido = new javax.swing.JPanel();
-        siguienteBtn = new javax.swing.JButton();
-        paso2 = new javax.swing.JPanel();
+        paso3 = new classes.PanelRound();
         textoPaso3 = new javax.swing.JLabel();
-        texto2Paso3 = new javax.swing.JLabel();
-        texto3Paso3 = new javax.swing.JLabel();
-        paso3TextoCentral1 = new javax.swing.JLabel();
-        paso3TextoCentral2 = new javax.swing.JLabel();
-        paso3TextoCentral3 = new javax.swing.JLabel();
-        paso3TextoCentral4 = new javax.swing.JLabel();
+        siguienteBtn = new javax.swing.JButton();
         anteriorBtn = new javax.swing.JButton();
         imgPaso3 = new javax.swing.JLabel();
+        textoCentral = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,7 +126,7 @@ public class Paso3 extends javax.swing.JFrame {
             .addGroup(headerLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 746, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         headerLayout.setVerticalGroup(
             headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,6 +138,31 @@ public class Paso3 extends javax.swing.JFrame {
 
         contenido.setBackground(new java.awt.Color(255, 255, 255));
 
+        paso3.setBackground(new java.awt.Color(51, 51, 255));
+        paso3.setRoundBottomLeft(50);
+        paso3.setRoundBottomRight(50);
+        paso3.setRoundTopLeft(50);
+        paso3.setRoundTopRight(50);
+
+        textoPaso3.setForeground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout paso3Layout = new javax.swing.GroupLayout(paso3);
+        paso3.setLayout(paso3Layout);
+        paso3Layout.setHorizontalGroup(
+            paso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paso3Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(textoPaso3, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+        paso3Layout.setVerticalGroup(
+            paso3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paso3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(textoPaso3, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                .addGap(21, 21, 21))
+        );
+
         siguienteBtn.setBackground(new java.awt.Color(94, 195, 246));
         siguienteBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         siguienteBtn.setForeground(new java.awt.Color(0, 0, 0));
@@ -144,61 +172,6 @@ public class Paso3 extends javax.swing.JFrame {
                 siguienteBtnActionPerformed(evt);
             }
         });
-
-        paso2.setBackground(new java.awt.Color(51, 51, 255));
-        paso2.setForeground(new java.awt.Color(0, 0, 0));
-        paso2.setToolTipText("");
-
-        textoPaso3.setText("Paso 3: ");
-
-        texto2Paso3.setText("Tomar buenas");
-
-        texto3Paso3.setText("Decisiones");
-
-        javax.swing.GroupLayout paso2Layout = new javax.swing.GroupLayout(paso2);
-        paso2.setLayout(paso2Layout);
-        paso2Layout.setHorizontalGroup(
-            paso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paso2Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(paso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(textoPaso3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(paso2Layout.createSequentialGroup()
-                        .addGroup(paso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(texto3Paso3)
-                            .addComponent(texto2Paso3))
-                        .addGap(0, 21, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        paso2Layout.setVerticalGroup(
-            paso2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paso2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(textoPaso3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(texto2Paso3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(texto3Paso3)
-                .addContainerGap(11, Short.MAX_VALUE))
-        );
-
-        paso3TextoCentral1.setBackground(new java.awt.Color(255, 255, 255));
-        paso3TextoCentral1.setForeground(new java.awt.Color(0, 0, 0));
-        paso3TextoCentral1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso3TextoCentral1.setText("Cada elección que hagas afectará el tiempo, ");
-
-        paso3TextoCentral2.setForeground(new java.awt.Color(0, 0, 0));
-        paso3TextoCentral2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso3TextoCentral2.setText("costo, calidad y motivación de tu equipo.");
-
-        paso3TextoCentral3.setForeground(new java.awt.Color(0, 0, 0));
-        paso3TextoCentral3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso3TextoCentral3.setText("¡Toma las decisiones correctas y lleva tu ");
-
-        paso3TextoCentral4.setBackground(new java.awt.Color(255, 255, 255));
-        paso3TextoCentral4.setForeground(new java.awt.Color(0, 0, 0));
-        paso3TextoCentral4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        paso3TextoCentral4.setText("proyecto al éxito!");
 
         anteriorBtn.setBackground(new java.awt.Color(94, 195, 246));
         anteriorBtn.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
@@ -210,50 +183,39 @@ public class Paso3 extends javax.swing.JFrame {
             }
         });
 
+        imgPaso3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgPaso3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/paso3.png"))); // NOI18N
+
+        textoCentral.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout contenidoLayout = new javax.swing.GroupLayout(contenido);
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(imgPaso3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(contenidoLayout.createSequentialGroup()
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(paso3TextoCentral2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(143, 143, 143)
+                        .addGap(156, 156, 156)
                         .addComponent(anteriorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(siguienteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(paso3TextoCentral3, javax.swing.GroupLayout.PREFERRED_SIZE, 774, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(paso3TextoCentral1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenidoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(paso3TextoCentral4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(contenidoLayout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(paso2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-            .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(214, 214, 214)
-                .addComponent(imgPaso3)
+                        .addGap(40, 40, 40)
+                        .addComponent(paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(textoCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenidoLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(paso2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addComponent(paso3TextoCentral1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paso3TextoCentral2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(paso3TextoCentral3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(paso3TextoCentral4)
+                .addGap(34, 34, 34)
+                .addComponent(paso3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(textoCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(imgPaso3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addGroup(contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(anteriorBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(siguienteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -348,14 +310,9 @@ public class Paso3 extends javax.swing.JFrame {
     private javax.swing.JPanel fondo;
     private javax.swing.JPanel header;
     private javax.swing.JLabel imgPaso3;
-    private javax.swing.JPanel paso2;
-    private javax.swing.JLabel paso3TextoCentral1;
-    private javax.swing.JLabel paso3TextoCentral2;
-    private javax.swing.JLabel paso3TextoCentral3;
-    private javax.swing.JLabel paso3TextoCentral4;
+    private classes.PanelRound paso3;
     private javax.swing.JButton siguienteBtn;
-    private javax.swing.JLabel texto2Paso3;
-    private javax.swing.JLabel texto3Paso3;
+    private javax.swing.JLabel textoCentral;
     private javax.swing.JLabel textoPaso3;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
