@@ -3,16 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-import interfaces.tutorial.Paso2;
 import java.awt.Font;
 import java.io.InputStream;
-import interfaces.tutorial.Paso1;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Shape;
-import java.awt.geom.RoundRectangle2D;
-import javax.swing.JButton;
+
 /**
  *
  * @author frann
@@ -44,6 +37,7 @@ public class Inicio extends javax.swing.JFrame {
                     // 3. Establecer el tamaño y estilo (ej. tamaño 24)
                     Font sizedFontTitulo = customFont.deriveFont(Font.BOLD, 24f); 
                     Font sizedFontTexto = customFont.deriveFont(Font.BOLD, 20f); 
+                    Font sizedFontBoton = customFont.deriveFont(Font.BOLD, 15f); 
 
                     // 4. Aplicar la fuente al JLabel creado en el diseñador
                     
@@ -54,7 +48,7 @@ public class Inicio extends javax.swing.JFrame {
                     texto.setFont(sizedFontTexto);
                     
                     // boton
-                    enterBtn.setFont(sizedFontTexto);
+                    enterBtn.setFont(sizedFontBoton);
                 } else {
                     System.err.println("Error: Archivo de fuente no encontrado en la ruta /fonts/PressStart2P.ttf");
                 }

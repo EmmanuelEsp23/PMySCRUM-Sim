@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces;
-import interfaces.tutorial.Paso2;
 import java.awt.Font;
 import java.io.InputStream;
 import interfaces.tutorial.Paso1;
@@ -39,7 +38,7 @@ public class Introduccion extends javax.swing.JFrame {
 
                     // 3. Establecer el tamaño y estilo (ej. tamaño 24)
                     Font sizedFontTitulo = customFont.deriveFont(Font.BOLD, 20f); 
-                    Font sizedFontTexto = customFont.deriveFont(Font.BOLD, 10f); 
+                    Font sizedFontTexto = customFont.deriveFont(Font.BOLD, 12f); 
                     Font sizedFontBoton = customFont.deriveFont(Font.BOLD, 15f); 
 
                     // 4. Aplicar la fuente al JLabel creado en el diseñador
@@ -52,7 +51,7 @@ public class Introduccion extends javax.swing.JFrame {
                     ge.registerFont(customFont);
                     textoArriba.setFont(sizedFontTexto);    
                     textoArriba.setText("<html>" +
-                        "<div style='text-align:center; font-family:\"" + customFont.getName() + "\"; font-size:12pt;'>" +
+                        "<div style='text-align:center; font-family:\"" + customFont.getName() + "\";'>" +
                         "<p style='margin:0 0 10px 0;'>Aprende las bases de las metodologías PMBOK y SCRUM</p>" +
                         "<p style='margin:0 0 10px 0;'>por medio de nuestro contenido didáctico y</p>"
                                 + "<p style='margin:0;'>simulación de proyectos</p>" +

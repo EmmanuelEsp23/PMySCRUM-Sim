@@ -3,14 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaces.tutorial;
-import interfaces.*;
 import java.awt.Font;
 import java.io.InputStream;
-import javax.swing.JPanel;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.Color;
 import java.awt.GraphicsEnvironment;
 /**
  *
@@ -42,8 +36,8 @@ public class Paso3 extends javax.swing.JFrame {
 
                     // 3. Establecer el tamaño y estilo (ej. tamaño 24)
                     Font sizedFontTitulo = customFont.deriveFont(Font.BOLD, 24f); 
-                    Font sizedFontTexto = customFont.deriveFont(Font.BOLD, 16f); 
-                    Font sizedFontTexto2 = customFont.deriveFont(Font.BOLD, 12f); 
+                    Font sizedFontTexto = customFont.deriveFont(Font.BOLD, 12f); 
+                    Font sizedFontBoton = customFont.deriveFont(Font.BOLD, 15f); 
 
                     // 4. Aplicar la fuente al JLabel creado en el diseñador
                     
@@ -55,7 +49,7 @@ public class Paso3 extends javax.swing.JFrame {
                     ge.registerFont(customFont);
                     textoPaso3.setFont(sizedFontTexto);
                     textoPaso3.setText("<html>" +
-                        "<div style='text-align:left; font-family:\"" + customFont.getName() + "\"; font-size:12pt;'>" +
+                        "<div style='text-align:left; font-family:\"" + customFont.getName() + "\";'>" +
                         "<p style='margin:0 0 10px 0;'>Paso 3: </p>" +
                         "<p style='margin:0;'>Tomas buenas decisiones</p>" + 
                         "</div></html>");
@@ -64,7 +58,7 @@ public class Paso3 extends javax.swing.JFrame {
                     // texto central
                     textoCentral.setFont(sizedFontTexto);
                     textoCentral.setText("<html>" +
-                        "<div style='text-align:center; font-family:\"" + customFont.getName() + "\"; font-size:12pt;'>" +
+                        "<div style='text-align:center; font-family:\"" + customFont.getName() + "\";'>" +
                         "<p style='margin:0 0 10px 0;'>Cada elección que hagas afectará el tiempo,</p>" +
                         "<p style='margin:0 0 15px 0;'>costo, calidad y motivación del equipo.</p>" + 
                         "<p style='margin:0 0 10px 0;'>¡Toma las decisiones correctas y lleva tu</p>" +
@@ -73,8 +67,8 @@ public class Paso3 extends javax.swing.JFrame {
 
                     
                     //botones
-                    anteriorBtn.setFont(sizedFontTexto);
-                    siguienteBtn.setFont(sizedFontTexto);
+                    anteriorBtn.setFont(sizedFontBoton);
+                    siguienteBtn.setFont(sizedFontBoton);
                 } else {
                     System.err.println("Error: Archivo de fuente no encontrado en la ruta /fonts/PressStart2P.ttf");
                 }

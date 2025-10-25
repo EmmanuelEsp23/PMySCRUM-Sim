@@ -6,11 +6,6 @@ package interfaces.tutorial;
 import interfaces.*;
 import java.awt.Font;
 import java.io.InputStream;
-import javax.swing.JPanel;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.Color;
 import java.awt.GraphicsEnvironment;
 /**
  *
@@ -42,8 +37,8 @@ public class Paso1 extends javax.swing.JFrame {
 
                     // 3. Establecer el tamaño y estilo (ej. tamaño 24)
                     Font sizedFontTitulo = customFont.deriveFont(Font.BOLD, 24f); 
-                    Font sizedFontTexto = customFont.deriveFont(Font.BOLD, 16f); 
-                    Font sizedFontTexto2 = customFont.deriveFont(Font.BOLD, 12f); 
+                    Font sizedFontTexto = customFont.deriveFont(Font.BOLD, 12f); 
+                    Font sizedFontBoton = customFont.deriveFont(Font.BOLD, 15f); 
 
                     // 4. Aplicar la fuente al JLabel creado en el diseñador
                     
@@ -55,7 +50,7 @@ public class Paso1 extends javax.swing.JFrame {
                     ge.registerFont(customFont);
                     textoPaso1.setFont(sizedFontTexto);  
                     textoPaso1.setText("<html>" +
-                        "<div style='text-align:left; font-family:\"" + customFont.getName() + "\"; font-size:12pt;'>" +
+                        "<div style='text-align:left; font-family:\"" + customFont.getName() + "\";'>" +
                         "<p style='margin:0 0 10px 0;'>Paso 1: </p>" +
                         "<p style='margin:0;'>Escoger Metodología</p>" + 
                         "</div></html>");
@@ -66,10 +61,11 @@ public class Paso1 extends javax.swing.JFrame {
                         "<div style='text-align:center; font-family:\"" + customFont.getName() + "\";'>" +
                         "<p style='margin:0 0 10px 0;'>Elegir la metodología SCRUM o PMBOK </p>" +
                         "<p style='margin:0;'>Del caso propuesto</p>" + 
-                        "</div></html>");                   
+                        "</div></html>");      
+                    
                     // botones
-                    anteriorBtn.setFont(sizedFontTexto);
-                    siguienteBtn.setFont(sizedFontTexto);
+                    anteriorBtn.setFont(sizedFontBoton);
+                    siguienteBtn.setFont(sizedFontBoton);
                 } else {
                     System.err.println("Error: Archivo de fuente no encontrado en la ruta /fonts/PressStart2P.ttf");
                 }
